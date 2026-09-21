@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Qualquer usuário AUTENTICADO (inclusive login anônimo) pode ler e
+    // escrever. Como ninguém faz login com e-mail/senha aqui, só quem abre
+    // o link do app (que faz login anônimo sozinho) ganha acesso — não é
+    // uma trava contra alguém que descubra a URL do projeto e monte um
+    // cliente Firebase próprio, mas é suficiente para um app familiar
+    // cujo link não é divulgado publicamente.
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

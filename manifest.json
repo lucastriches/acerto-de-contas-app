@@ -1,0 +1,9 @@
+{
+  "name": "Acerto de Contas",
+  "short_name": "Acerto",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F5F2E9",
+  "theme_color": "#F5F2E9",
+  "icons": []
+}
